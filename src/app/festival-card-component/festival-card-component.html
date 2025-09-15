@@ -1,0 +1,8 @@
+<div class="festival-card">
+    @if (festival()){
+        @let fs = festival()!;
+    <h2>{{ fs.name }}</h2>
+    <p>Location: {{ fs.location }}</p>
+    <p>Year: {{ fs.year }}</p>
+    }
+</div>

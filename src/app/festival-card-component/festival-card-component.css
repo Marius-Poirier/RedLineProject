@@ -1,0 +1,9 @@
+.student-card {
+    width: 320px;
+    margin: 24px;
+    padding: 20px;
+    border: 1px solid #bd255f;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(63, 69, 70, 0.15);
+    background: #fad8d8;
+}
