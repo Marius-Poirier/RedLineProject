@@ -1,8 +1,13 @@
-<div class="festival-card">
+<mat-card class="festival-card">
     @if (festival()){
         @let fs = festival()!;
-    <h2>{{ fs.name }}</h2>
-    <p>Location: {{ fs.location }}</p>
-    <p>Year: {{ fs.year }}</p>
+        <mat-card-header>
+            <mat-card-title>{{ fs.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p><strong>Location:</strong> {{ fs.location }}</p>
+            <p><strong>Year:</strong> {{ fs.year }}</p>
+        </mat-card-content>
     }
-</div>
+</mat-card >
+    
