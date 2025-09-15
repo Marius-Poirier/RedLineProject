@@ -1,3 +1,10 @@
+<p class="festival-count">Number of Festivals: {{ nbFest() }}</p>
+<div class="festival-cards-row">
 @for (festival of items(); track festival.id) {
-    <app-festival-card-component [festival]="festival"></app-festival-card-component>
+    <app-festival-card-component 
+        (remove)="removeFestival(festival.id)" 
+        [festival]="festival">
+    </app-festival-card-component>
 }
+</div>
+<app-festival-form (createFestival)="addFestival($event)"></app-festival-form>

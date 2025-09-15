@@ -1,0 +1,22 @@
+/* Style for the festival count paragraph */
+.festival-count {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	color: #74183b;
+	margin: 32px 0 24px 0;
+	letter-spacing: 1px;
+	background: linear-gradient(90deg, #fad8d8 0%, #fff 100%);
+	border-radius: 12px;
+	padding: 16px 0;
+	box-shadow: 0 2px 8px rgba(63, 69, 70, 0.10);
+}
+
+.festival-cards-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	justify-content: center;
+	align-items: flex-start;
+	margin-bottom: 32px;
+}
