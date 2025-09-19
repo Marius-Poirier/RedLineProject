@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal, computed } from '@angular/core';
+import { Component, signal, WritableSignal, computed, effect } from '@angular/core';
 import { FestivalDTO } from '../festival-dto';
 import { FestivalCardComponent } from '../festival-card-component/festival-card-component';
 import { FestivalForm } from '../festival-form/festival-form';
@@ -18,9 +18,18 @@ festival1 : FestivalDTO = {id: 1, name: 'Glastonbury', location: 'UK', year: 202
 festival2 : FestivalDTO = {id: 2, name: 'Tomorrowland', location: 'Belgium', year: 2023, isCurrent: false};
 festival3 : FestivalDTO = {id: 3, name: 'Coachella', location: 'USA', year: 2023, isCurrent: false};
 
+constructor(){
+  effect(() => {
+    console.log("number of festivals: ", this.nbFest())
+    console.log("number of active festivals: ", this.activeFestivals())
+    localStorage.setItem("festivals", JSON.stringify(this.items()))
+  })
+}
+
 lastId = 3;
 festivals : FestivalDTO[] = [this.festival1, this.festival2, this.festival3];
 nbFest = computed(() => this.items().length)
+activeFestivals = computed(() => this.items().filter(festival => festival.isCurrent).length)
 
 items: WritableSignal<FestivalDTO[]> = signal(this.festivals);
 
