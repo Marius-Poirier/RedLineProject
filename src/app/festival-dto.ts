@@ -3,4 +3,5 @@ export interface FestivalDTO {
     name: string
     location: string
     year: number
+    isCurrent: boolean
 }

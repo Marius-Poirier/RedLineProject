@@ -14,9 +14,9 @@ import {FormsModule} from '@angular/forms';
 })
 
 export class FestivalList {
-festival1 : FestivalDTO = {id: 1, name: 'Glastonbury', location: 'UK', year: 2023};
-festival2 : FestivalDTO = {id: 2, name: 'Tomorrowland', location: 'Belgium', year: 2023};
-festival3 : FestivalDTO = {id: 3, name: 'Coachella', location: 'USA', year: 2023};
+festival1 : FestivalDTO = {id: 1, name: 'Glastonbury', location: 'UK', year: 2023, isCurrent: false};
+festival2 : FestivalDTO = {id: 2, name: 'Tomorrowland', location: 'Belgium', year: 2023, isCurrent: false};
+festival3 : FestivalDTO = {id: 3, name: 'Coachella', location: 'USA', year: 2023, isCurrent: false};
 
 lastId = 3;
 festivals : FestivalDTO[] = [this.festival1, this.festival2, this.festival3];
@@ -34,7 +34,8 @@ addFestival(festival: FestivalDTO) {
     id: this.items().length + 1,
     name: festival.name,
     location: festival.location,
-    year: festival.year
+    year: festival.year,
+    isCurrent: festival.isCurrent
   };
   console.log(newFestival);
   this.items.set([...this.items(), newFestival]);

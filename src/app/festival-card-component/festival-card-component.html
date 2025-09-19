@@ -6,6 +6,7 @@
         </mat-card-header>
         <mat-card-content>
             <p><strong>Location:</strong> {{ fs.location }}</p>
+            <p><strong>Current:</strong> {{ fs.isCurrent ? 'Yes' : 'No' }}</p>
             <button matFab aria-label="Delete button" (click)="remove.emit()">
                 <mat-icon>delete</mat-icon>
             </button>
