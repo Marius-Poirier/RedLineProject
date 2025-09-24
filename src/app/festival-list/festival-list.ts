@@ -1,10 +1,11 @@
-import { Component, signal, WritableSignal, computed, effect } from '@angular/core';
+import { Component, signal, WritableSignal, computed, effect, inject } from '@angular/core';
 import { FestivalDTO } from '../festival-dto';
 import { FestivalCardComponent } from '../festival-card-component/festival-card-component';
 import { FestivalForm } from '../festival-form/festival-form';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
+import {FestivalService} from '../festival-service'
 
 @Component({
   selector: 'app-festival-list',
@@ -14,40 +15,27 @@ import {FormsModule} from '@angular/forms';
 })
 
 export class FestivalList {
-festival1 : FestivalDTO = {id: 1, name: 'Glastonbury', location: 'UK', year: 2023, isCurrent: false};
-festival2 : FestivalDTO = {id: 2, name: 'Tomorrowland', location: 'Belgium', year: 2023, isCurrent: false};
-festival3 : FestivalDTO = {id: 3, name: 'Coachella', location: 'USA', year: 2023, isCurrent: false};
+  readonly festivals = inject(FestivalService)
 
-constructor(){
-  effect(() => {
-    console.log("number of festivals: ", this.nbFest())
-    console.log("number of active festivals: ", this.activeFestivals())
-    localStorage.setItem("festivals", JSON.stringify(this.items()))
-  })
-}
+  constructor(){
+    effect(() => {
+      console.log("number of festivals: ", this.nbFest())
+      console.log("number of active festivals: ", this.activeFestivals())
+      localStorage.setItem("festivals", JSON.stringify(this.items()))
+    })
+  }
 
-lastId = 3;
-festivals : FestivalDTO[] = [this.festival1, this.festival2, this.festival3];
-nbFest = computed(() => this.items().length)
-activeFestivals = computed(() => this.items().filter(festival => festival.isCurrent).length)
+  nbFest = this.festivals.nbFestivals
+  activeFestivals = computed(() => this.items().filter(festival => festival.isCurrent).length)
 
-items: WritableSignal<FestivalDTO[]> = signal(this.festivals);
+  items = this.festivals.festivalsList; 
 
-removeFestival(id?: number) {
-  this.items.set(this.items().filter(festival => festival.id !== id));
-}
+  removeFestival(id?: number) {
+    this.festivals.remove(id);
+  }
 
 addFestival(festival: FestivalDTO) {
-  console.log(festival);
-  const newFestival: FestivalDTO = {
-    id: this.items().length + 1,
-    name: festival.name,
-    location: festival.location,
-    year: festival.year,
-    isCurrent: festival.isCurrent
-  };
-  console.log(newFestival);
-  this.items.set([...this.items(), newFestival]);
+  this.festivals.add(festival.name, festival.location, festival.year, festival.isCurrent)
 }
 }
   
