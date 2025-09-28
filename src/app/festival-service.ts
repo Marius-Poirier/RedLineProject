@@ -24,11 +24,13 @@ export class FestivalService {
     return festivals[0].id;
   }
 
-  getNextId(currentId: number){
+  getNextId(currentId: number | null){
     const festivals = this.festivalsList();
     if (festivals.length === 0) return null;
+    if (currentId == null) return this.getFirstId();
     const idx = festivals.findIndex(festival => festival.id === currentId);
-    if (idx === -1 || idx === festivals.length - 1) return null;
+    if (idx === -1 ) return null;
+    if (idx === festivals.length - 1) return this.getFirstId();
     return festivals[idx + 1].id;
 
   }

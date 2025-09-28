@@ -20,7 +20,7 @@ export class Header {
   currentFestName = computed(() => {
     const idValue = this.currentFestId();
     if (idValue == null) {
-      return null;
+      return "aucun festival sélectionné";
     } else {
       console.log("id: " + idValue);
       const id = idValue;
@@ -34,10 +34,6 @@ export class Header {
   }
   
   nextFestival() {
-    if (this.currentFestId() == null) {
-      this.userStore.setFestival(null);
-      return;
-    }
     const currentId = this.festivalService.getNextId(this.currentFestId()!);
     this.userStore.setFestival(currentId == null ? null : currentId);
   }
