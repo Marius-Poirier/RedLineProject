@@ -1,3 +1,7 @@
+.list-content {
+	margin-right: 20vw;
+	box-sizing: border-box;
+}
 /* Style for the festival count paragraph */
 .festival-count {
 	text-align: center;
@@ -6,10 +10,15 @@
 	color: #74183b;
 	margin: 0 0 24px 0;
 	letter-spacing: 1px;
-	background: linear-gradient(90deg, #fad8d8 0%, #fff 100%);
+	background: #fad8d8;
 	border-radius: 12px;
 	padding: 16px 0;
 	box-shadow: 0 2px 8px rgba(63, 69, 70, 0.10);
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	transform: translateX(-50%);
 }
 
 .festival-cards-row {
