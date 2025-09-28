@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import {FestivalList} from './festival-list/festival-list';
 import {Header} from './header/header'
-import {UserStore} from './user-signal-store'
+import {Sidebar} from './sidebar/sidebar'
 
 @Component({
   selector: 'app-root',
-  imports: [FestivalList, Header],
+  imports: [FestivalList, Header, Sidebar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

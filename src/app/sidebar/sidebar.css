@@ -1,0 +1,30 @@
+.sidebar-block {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  height: calc(100vh - 4rem);
+  width: 20vw;
+  min-width: 12.5rem;
+  max-width: 21.25rem;
+  background: #fff6fa;
+  border-left: 0.1875rem solid #bd255f;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: -0.0625rem 0 0.75rem rgba(63, 69, 70, 0.10);
+  font-size: 1.1rem;
+  color: #74183b;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  margin-right: 0.625rem;
+}
+
+.sidebar-current {
+  color: #bd255f;
+  font-weight: 600;
+}
