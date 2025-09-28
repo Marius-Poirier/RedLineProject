@@ -1,1 +1,12 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="main-toolbar">
+  <mat-icon class="header-icon">festival</mat-icon>
+  <span class="user-name">{{ userStore.userName() }}</span>
+  <span class="fest-name">{{ currentFestName() }}</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="accent" class="header-btn" (click)="firstFestival()">
+    <mat-icon>first_page</mat-icon> First
+  </button>
+  <button mat-raised-button color="accent" class="header-btn" (click)="nextFestival()">
+    <mat-icon>navigate_next</mat-icon> Next
+  </button>
+</mat-toolbar>

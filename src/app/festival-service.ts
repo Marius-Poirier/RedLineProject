@@ -18,11 +18,31 @@ export class FestivalService {
     this.nextId++;
   }
 
+  getFirstId(){
+    const festivals = this.festivalsList();
+    if (festivals.length === 0) return null;
+    return festivals[0].id;
+  }
+
+  getNextId(currentId: number){
+    const festivals = this.festivalsList();
+    if (festivals.length === 0) return null;
+    const idx = festivals.findIndex(festival => festival.id === currentId);
+    if (idx === -1 || idx === festivals.length - 1) return null;
+    return festivals[idx + 1].id;
+
+  }
+
   readonly festivalsList = this._festivals.asReadonly()
   readonly nbFestivals = computed(() => this.festivalsList().length);
 
   clear(){
     this._festivals.set([]);
+  }
+
+  findById(id: number){
+    const festival = this.festivalsList().find(festival => festival.id === id);
+    return festival ?? null;
   }
 
   remove(id?: number) {

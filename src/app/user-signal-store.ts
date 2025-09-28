@@ -1,6 +1,5 @@
-import { computed, effect, Injectable } from '@angular/core';
+import { computed, effect } from '@angular/core';
 import { signalStore, withState, withComputed, withMethods, patchState } from '@ngrx/signals';
-import { withEffects } from '@ngrx/signals/events';
 import {UserDto} from './user-dto'
 import { AppStateInterface } from './app-state-interface';
 
@@ -10,11 +9,13 @@ const initialState: AppStateInterface = {
 }
 
 export const UserStore = signalStore(
+  { providedIn: 'root' },
+  
   withState<AppStateInterface>(initialState),
   withComputed(({ currentUser }) => ({
-    isLoggedIn: computed(() => currentUser != null),
+    isLoggedIn: computed(() => currentUser() != null),
     userName: computed(() =>
-      currentUser != null && currentUser.name ? currentUser.name : 'invité'
+      currentUser() != null && currentUser()?.name ? currentUser()!.name : 'invité'
     )
   })),
   withMethods((store) => {
