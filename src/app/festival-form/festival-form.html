@@ -16,6 +16,8 @@
 
   <mat-checkbox formControlName="isCurrent">Is Current</mat-checkbox>
   
-  <button matButton="outlined" type="submit">Add Festival</button>
+  <button matButton="outlined" type="submit">
+    {{ editing ? 'Update Festival' : 'Add Festival' }}
+  </button>
   <button matButton="outlined" type="button" (click)="formVisibleChange.emit(false)">Cancel</button>
 </form> 

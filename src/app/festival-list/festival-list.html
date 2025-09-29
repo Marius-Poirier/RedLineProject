@@ -9,7 +9,7 @@
         </app-festival-card-component>
     }
     </div>
-    <button class= "add-festival-button" [hidden]="formVisible()" matFab aria-label="add festival button" (click)="formVisible.set(!formVisible())">
+    <button class= "add-festival-button" [hidden]="formVisible()" matFab aria-label="add festival button" (click)="formVisible.set(!formVisible())" (click)="formValues.set({name: '', location: '', year: 2025, isCurrent: false})">
         <mat-icon>add</mat-icon>
     </button>
     <app-festival-form [formValues]="formValues()" (formVisibleChange)="formVisible.set($event)" [hidden]="!formVisible()"></app-festival-form>

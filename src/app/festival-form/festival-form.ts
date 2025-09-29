@@ -18,10 +18,12 @@ export class FestivalForm {
   formVisibleChange = output<boolean>();
   readonly festivals = inject(FestivalService)
   formValues = input<FestivalDTO>()
+  editing = false;
 
   constructor() {
     effect(() => {
       this.setFormValues(this.formValues());
+      this.editing = true;
     });
   }
   
@@ -37,8 +39,13 @@ export class FestivalForm {
     const location = this.form.get('location')!.value;
     const year = this.form.get('year')!.value;
     const isCurrent = this.form.get('isCurrent')!.value;
-    this.festivals.add(name, location, year, isCurrent);
-    this.form.reset();
+    if (this.editing) {
+      this.festivals.update(this.formValues()!.id!, name, location, year, isCurrent);
+      this.editing = false;
+    } else {
+      this.festivals.add(name, location, year, isCurrent);
+      this.form.reset();
+    }
   }
 
   setFormValues(festival: FestivalDTO | undefined): void {

@@ -7,12 +7,14 @@
         <mat-card-content>
             <p><strong>Location:</strong> {{ fs.location }}</p>
             <p><strong>Current:</strong> {{ fs.isCurrent ? 'Yes' : 'No' }}</p>
-            <button matFab aria-label="Delete button" (click)="remove.emit()">
-                <mat-icon>delete</mat-icon>
-            </button>
-            <button matFab aria-label="Modify button" (click)="edit.emit()">
-                <mat-icon>edit</mat-icon>
-            </button>
+            <div class="card-actions">
+                <button matFab aria-label="Delete button" (click)="remove.emit()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button matFab aria-label="Modify button" (click)="edit.emit()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </div>
         </mat-card-content>
     }
 </mat-card>

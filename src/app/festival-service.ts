@@ -18,7 +18,7 @@ export class FestivalService {
     this.nextId++;
   }
 
-  modify(id: number, name: string, location: string, year: number, isCurrent: boolean){
+  update(id: number, name: string, location: string, year: number, isCurrent: boolean){
     this._festivals.update(festivals => festivals.map(festival => 
       festival.id === id ? {id: id, name: name, location: location, year: year, isCurrent: isCurrent} : festival
     ));

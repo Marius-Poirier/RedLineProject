@@ -7,3 +7,9 @@
     box-shadow: 0 4px 16px rgba(63, 69, 70, 0.15);
     background: #fad8d8;
 }
+
+.card-actions {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
