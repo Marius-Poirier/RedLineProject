@@ -14,6 +14,7 @@ import { FestivalService } from '../festival-service';
 })
 
 export class FestivalForm {
+  formVisibleChange = output<boolean>();
   readonly festivals = inject(FestivalService)
   
   readonly form = new FormGroup({

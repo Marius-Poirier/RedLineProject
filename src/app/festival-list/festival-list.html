@@ -11,5 +11,5 @@
     <button class= "add-festival-button" [hidden]="formVisible()" matFab aria-label="add festival button" (click)="formVisible.set(!formVisible())">
         <mat-icon>add</mat-icon>
     </button>
-    <app-festival-form [hidden]="!formVisible()"></app-festival-form>
+    <app-festival-form (formVisibleChange)="formVisible.set($event)" [hidden]="!formVisible()"></app-festival-form>
 </div>
