@@ -13,4 +13,5 @@ import { FestivalDTO } from '../festival-dto';
 export class FestivalCardComponent {
   festival = input<FestivalDTO>()
   remove = output<void>();
+  edit = output<void>();
 }

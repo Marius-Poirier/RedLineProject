@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
 import {FestivalService} from '../festival-service'
+import { FestivalDTO } from '../festival-dto';
 
 @Component({
   selector: 'app-festival-list',
@@ -18,6 +19,7 @@ import {FestivalService} from '../festival-service'
 export class FestivalList {
   readonly festivals = inject(FestivalService)
   formVisible = signal(false);
+  formValues = signal<FestivalDTO>({id: 0, name: '', location: '', year: 2025, isCurrent: false});
 
   constructor(){
     effect(() => {
@@ -34,6 +36,14 @@ export class FestivalList {
 
   removeFestival(id?: number) {
     this.festivals.remove(id);
+  }
+
+  onEditFestival(id?: number): void {
+    const fest = this.items().find(festival => festival.id === id);
+    if (fest) {
+      this.formValues.set(fest);
+      this.formVisible.set(true);
+    }
   }
 }
   

@@ -4,12 +4,13 @@
     @for (festival of items(); track festival.id) {
         <app-festival-card-component 
             (remove)="removeFestival(festival.id)" 
-            [festival]="festival">
+            [festival]="festival"
+            (edit)="onEditFestival(festival.id)">
         </app-festival-card-component>
     }
     </div>
     <button class= "add-festival-button" [hidden]="formVisible()" matFab aria-label="add festival button" (click)="formVisible.set(!formVisible())">
         <mat-icon>add</mat-icon>
     </button>
-    <app-festival-form (formVisibleChange)="formVisible.set($event)" [hidden]="!formVisible()"></app-festival-form>
+    <app-festival-form [formValues]="formValues()" (formVisibleChange)="formVisible.set($event)" [hidden]="!formVisible()"></app-festival-form>
 </div>
