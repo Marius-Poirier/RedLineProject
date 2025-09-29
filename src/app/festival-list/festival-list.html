@@ -8,5 +8,8 @@
         </app-festival-card-component>
     }
     </div>
-    <app-festival-form (createFestival)="addFestival($event)"></app-festival-form>
+    <button class= "add-festival-button" [hidden]="formVisible()" matFab aria-label="add festival button" (click)="formVisible.set(!formVisible())">
+        <mat-icon>add</mat-icon>
+    </button>
+    <app-festival-form [hidden]="!formVisible()"></app-festival-form>
 </div>

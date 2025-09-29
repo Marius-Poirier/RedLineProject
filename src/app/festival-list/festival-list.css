@@ -1,3 +1,14 @@
+/* Center the add-festival-button horizontally in the main content area */
+.add-festival-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 2em auto 2em auto;
+	left: 0;
+	right: 0;
+	position: relative;
+	z-index: 10;
+}
 .list-content {
 	margin-right: 20vw;
 	box-sizing: border-box;

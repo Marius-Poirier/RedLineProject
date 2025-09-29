@@ -18,6 +18,12 @@ export class FestivalService {
     this.nextId++;
   }
 
+  modify(id: number, name: string, location: string, year: number, isCurrent: boolean){
+    this._festivals.update(festivals => festivals.map(festival => 
+      festival.id === id ? {id: id, name: name, location: location, year: year, isCurrent: isCurrent} : festival
+    ));
+  }
+
   getFirstId(){
     const festivals = this.festivalsList();
     if (festivals.length === 0) return null;

@@ -1,10 +1,10 @@
-import { Component, output } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FestivalDTO } from '../festival-dto';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FestivalService } from '../festival-service';
 
 @Component({
   selector: 'app-festival-form',
@@ -12,9 +12,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './festival-form.html',
   styleUrl: './festival-form.css'
 })
-export class FestivalForm {
-  createFestival = output<FestivalDTO>();
 
+export class FestivalForm {
+  readonly festivals = inject(FestivalService)
+  
   readonly form = new FormGroup({
     name: new FormControl('', { nonNullable: true }),
     year: new FormControl(2025, { nonNullable: true }),
@@ -23,14 +24,11 @@ export class FestivalForm {
     });
 
   submit(): void {
-    const festival: FestivalDTO = {
-      id: 0,
-      name: this.form.get('name')!.value,
-      location: this.form.get('location')!.value,
-      year: this.form.get('year')!.value,
-      isCurrent: this.form.get('isCurrent')!.value
-    };
-    this.createFestival.emit(festival);
+    const name = this.form.get('name')!.value;
+    const location = this.form.get('location')!.value;
+    const year = this.form.get('year')!.value;
+    const isCurrent = this.form.get('isCurrent')!.value;
+    this.festivals.add(name, location, year, isCurrent);
     this.form.reset();
   }
 }
