@@ -1,0 +1,32 @@
+<div class="form-container">
+<form [formGroup]="exposantForm" class="exposant-form">
+    <mat-form-field class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Name" />
+    </mat-form-field>
+    <div class="error-text">
+    @if(exposantForm.invalid){
+        {{ getError('name') }}
+    }
+    </div>
+    <mat-form-field class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Email" />
+    </mat-form-field>
+    <div class="error-text">
+    @if(exposantForm.invalid){
+        {{ getError('email') }}
+    }
+    </div>
+    <mat-form-field class="form-field">
+        <mat-label>Type</mat-label>
+        <input matInput type="text" formControlName="type" placeholder="Type" />
+    </mat-form-field>
+    <div class="error-text">
+    @if(exposantForm.invalid){
+        {{ getError('type') }}
+    }
+    </div>
+    <button matButton="outlined" class="submit-btn" [disabled]="exposantForm.invalid" type="button" (click)="onSubmit()">Add Exposant</button>
+</form>
+</div>
