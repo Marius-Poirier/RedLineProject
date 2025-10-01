@@ -1,0 +1,58 @@
+.menu-toolbar {
+  background: #fad8d8;
+  color: #74183b;
+  box-shadow: 0 2px 8px rgba(63, 69, 70, 0.10);
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 64px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-logo {
+  font-size: 1.75rem;
+  color: #74183b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.site-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #74183b;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  color: #74183b;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+  text-transform: none;
+}
+
+.nav-btn:hover {
+  background-color: rgba(116, 24, 59, 0.1);
+}
+
+.nav-btn mat-icon {
+  font-size: 1.2rem;
+}

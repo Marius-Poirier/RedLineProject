@@ -3,12 +3,18 @@
   color: #fff;
   box-shadow: 0 2px 8px rgba(63, 69, 70, 0.10);
   padding: 0 32px;
+  min-height: 64px;
 }
 
 .header-icon {
-  margin-right: 18px;
-  font-size: 2rem;
+  margin-right: 10px;
+  font-size: 1.75rem;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
 }
 
 .user-name {
@@ -38,4 +44,8 @@
   box-shadow: 0 2px 8px rgba(63, 69, 70, 0.10);
   letter-spacing: 0.5px;
   text-transform: none;
+}
+
+.header-btn:last-child {
+  margin-right: 17vw;
 }

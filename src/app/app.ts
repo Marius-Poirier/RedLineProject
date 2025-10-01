@@ -1,12 +1,10 @@
 import { Component, signal } from '@angular/core';
-import {FestivalList} from './festival-list/festival-list';
-import {Header} from './header/header'
-import {Sidebar} from './sidebar/sidebar'
-import {ExposantForm} from './exposant-form/exposant-form'
+import {Menu} from './menu/menu'
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [FestivalList, Header, Sidebar,ExposantForm],
+  imports: [Menu, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
