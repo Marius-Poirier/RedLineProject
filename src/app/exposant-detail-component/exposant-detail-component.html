@@ -1,0 +1,57 @@
+<div class="detail-container">
+  @if (exposant) {
+    <mat-card class="exposant-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="header-icon">person</mat-icon>
+          {{ exposant.name }}
+        </mat-card-title>
+        <mat-card-subtitle>Détails de l'exposant</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="info-section">
+          <div class="info-item">
+            <mat-icon class="info-icon">business</mat-icon>
+            <div class="info-content">
+              <label class="info-label">Type :</label>
+              <mat-chip class="type-chip">{{ getTypeLabel(exposant.type) }}</mat-chip>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon class="info-icon">email</mat-icon>
+            <div class="info-content">
+              <label class="info-label">Email :</label>
+              <span class="info-value">{{ exposant.email }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goBackToList()">
+          <mat-icon>arrow_back</mat-icon>
+          Retour à la liste
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  } @else {
+    <mat-card class="error-card">
+      <mat-card-content>
+        <div class="error-content">
+          <mat-icon class="error-icon">error</mat-icon>
+          <h3>Exposant non trouvé</h3>
+          <p>L'exposant avec l'ID "{{ exposantId }}" n'a pas été trouvé.</p>
+        </div>
+      </mat-card-content>
+      
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goBackToList()">
+          <mat-icon>arrow_back</mat-icon>
+          Retour à la liste
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  }
+</div>

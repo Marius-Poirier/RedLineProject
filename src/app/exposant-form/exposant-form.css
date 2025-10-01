@@ -25,3 +25,13 @@
   margin-top: 1rem;
   align-self: center;
 }
+
+/* Success snackbar styling */
+::ng-deep .success-snackbar {
+  background-color: #4caf50;
+  color: white;
+}
+
+::ng-deep .success-snackbar .mat-mdc-button {
+  color: white;
+}
