@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { ExposantDTO } from '../exposant-dto';
 import { ExposantService } from '../exposant-service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-exposant-detail-component',
