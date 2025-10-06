@@ -20,10 +20,10 @@ export class ExposantDetailComponent {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private exposantService = inject(ExposantService);
-  public exposantId$ = this.route.paramMap.pipe(
+  private exposantId$ = this.route.paramMap.pipe(
     map(params => params.get('id'))
   );
-
+  
   private exposantIdSignal = toSignal(this.exposantId$, { initialValue: null });
 
   public exposant = computed<ExposantDTO | null>(() => {

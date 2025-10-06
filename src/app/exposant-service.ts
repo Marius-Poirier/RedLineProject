@@ -12,6 +12,10 @@ export class ExposantService {
   ]);
   nextId = 3;
 
+  constructor() {
+    console.log('ExposantService instance created at:', Date.now());
+  }
+
   add(name: string, type: ExposantDTO['type'], email: string) {
     const newExposant: ExposantDTO = { id: this.nextId, name: name, type: type, email: email };
     console.log('Adding exposant:', newExposant);
