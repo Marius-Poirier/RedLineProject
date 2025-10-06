@@ -36,7 +36,6 @@ export class ExposantForm {
     if (this.exposantForm.valid) {
       const formValue = this.exposantForm.value;
       
-      // Since form is valid, we can safely assert these values exist
       this.exposantService.add(
         formValue.name!,
         formValue.type as ExposantDTO['type'],

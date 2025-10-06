@@ -1,10 +1,11 @@
 <div class="detail-container">
-  @if (exposant) {
+  @if (exposant()) {
+    @let exp = exposant()!;
     <mat-card class="exposant-card">
       <mat-card-header>
         <mat-card-title>
           <mat-icon class="header-icon">person</mat-icon>
-          {{ exposant.name }}
+          {{ exp.name }}
         </mat-card-title>
         <mat-card-subtitle>Détails de l'exposant</mat-card-subtitle>
       </mat-card-header>
@@ -15,7 +16,7 @@
             <mat-icon class="info-icon">business</mat-icon>
             <div class="info-content">
               <label class="info-label">Type :</label>
-              <mat-chip class="type-chip">{{ getTypeLabel(exposant.type) }}</mat-chip>
+              <mat-chip class="type-chip">{{ getTypeLabel(exp.type) }}</mat-chip>
             </div>
           </div>
           
@@ -23,7 +24,7 @@
             <mat-icon class="info-icon">email</mat-icon>
             <div class="info-content">
               <label class="info-label">Email :</label>
-              <span class="info-value">{{ exposant.email }}</span>
+              <span class="info-value">{{ exp.email }}</span>
             </div>
           </div>
         </div>
@@ -42,7 +43,7 @@
         <div class="error-content">
           <mat-icon class="error-icon">error</mat-icon>
           <h3>Exposant non trouvé</h3>
-          <p>L'exposant avec l'ID "{{ exposantId }}" n'a pas été trouvé.</p>
+          <p>L'exposant demandé n'a pas été trouvé.</p>
         </div>
       </mat-card-content>
       

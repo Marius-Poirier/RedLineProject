@@ -18,7 +18,7 @@ export class ExposantService {
     console.log('Current exposants before add:', this._exposants());
     this._exposants.update(exposants => [...exposants, newExposant]);
     this.nextId++;
-    console.log('All exposants after add:', this._exposants());
+    console.log('All exposants after add:', this.exposantsList());
   }
 
   update(id: number, name: string, type: ExposantDTO['type'], email: string) {
