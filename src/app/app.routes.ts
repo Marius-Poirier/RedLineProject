@@ -5,8 +5,9 @@ import { FestivalsListPageComponent } from './pages/festivals-list-page-componen
 import { ExposantDetailComponent } from './exposant-detail-component/exposant-detail-component';
 
 export const routes: Routes = [
-    { path: '', component: FestivalHomeComponent }, // route par défaut
-    { path: 'exposants', component: ExposantListComponent },
-    { path: 'festivals-list', component: FestivalsListPageComponent },
-    { path: 'exposants/:id', component: ExposantDetailComponent }
+    { path: '', component: FestivalHomeComponent },
+    { path: 'exposants', component: ExposantListComponent, title: 'exposants' },
+    { path: 'festivals-list', component: FestivalsListPageComponent, title: 'festivals' },
+    { path: 'exposants/:id', component: ExposantDetailComponent, title: 'exposant detail' },
+    { path: '', redirectTo: 'exposants', pathMatch: 'full' }
 ];
