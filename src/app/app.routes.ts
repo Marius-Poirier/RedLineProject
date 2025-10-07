@@ -6,6 +6,7 @@ import { ExposantDetailComponent } from './exposant-detail-component/exposant-de
 import { AdminComponent } from './admin-component/admin-component';
 import { ExposantsManager } from './exposants-manager/exposants-manager';
 import { FestivalsManager } from './festivals-manager/festivals-manager';
+import { AuthGuard } from './auth-guard';
 
 export const routes: Routes = [
     { path: '', component: FestivalHomeComponent },
@@ -13,7 +14,7 @@ export const routes: Routes = [
     { path: 'festivals-list', component: FestivalsListPageComponent, title: 'festivals' },
     { path: 'exposants/:id', component: ExposantDetailComponent, title: 'exposant detail' },
     { path: '', redirectTo: 'exposants', pathMatch: 'full' },
-    { path: 'admin',component: AdminComponent, children: [
+    { path: 'admin',component: AdminComponent, canActivateChild: [AuthGuard], children: [
         { path: 'exposants-manager', component: ExposantsManager },
         { path: 'festivals-manager', component: FestivalsManager }
     ]}
